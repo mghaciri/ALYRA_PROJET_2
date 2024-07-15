@@ -15,5 +15,5 @@ jobs:
       - name: Run SUT action with default provider
         uses: EthereumRemix/sol-test@v1
         with:
-          test-path: 'test/Voting.test.js'
+          test-path: 'test/Voting_test.sol'
           compiler-version: '0.8.15'
