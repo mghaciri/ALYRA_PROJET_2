@@ -1,0 +1,19 @@
+name: solidity-unit-testing-action
+on: [push]
+
+jobs:
+  run_sample_test_job:
+    runs-on: ubuntu-latest
+    name: A job to run sample solidity tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Environment Setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.12.2
+      - name: Run SUT action with default provider
+        uses: EthereumRemix/sol-test@v1.2
+        with:
+          test-path: 'test/Voting.test.js'
+          compiler-version: '0.8.20'
