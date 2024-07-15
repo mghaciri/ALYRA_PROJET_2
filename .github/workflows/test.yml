@@ -15,13 +15,13 @@ jobs:
         with:
           test-path: 'test'
           contract-path: 'contracts'
-          compiler-version: '0.8.7'
+          compiler-version: '0.8.24'
       - name: Run Custom Fork Test
         uses: EthereumRemix/ts-sol-test@v1.4.0
         with:
           test-path: 'test/Voting.test.js'
           contract-path: 'contracts/Voting.sol'
-          compiler-version: '0.8.17'
+          compiler-version: '0.8.24'
           hard-fork: 'merge'
           node-url: 'https://rpc.archivenode.io/e50zmkroshle2e2e50zm0044i7ao04ym'
 
