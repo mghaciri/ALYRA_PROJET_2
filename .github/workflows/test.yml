@@ -1,19 +1,27 @@
-name: solidity-unit-testing-action
+name: sol-test-js
 on: [push]
 
 jobs:
   run_sample_test_job:
     runs-on: ubuntu-latest
-    name: A job to run sample solidity tests
+    name: A job to run solidity tests in js
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Environment Setup
-        uses: actions/setup-node@v3
+      - name: Run Default Test
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+        uses: EthereumRemix/ts-sol-test@v1.4.0
         with:
-          node-version: 14.x
-      - name: Run SUT action with default provider
-        uses: EthereumRemix/sol-test@v1
+          test-path: 'test'
+          contract-path: 'contracts'
+          compiler-version: '0.8.7'
+      - name: Run Custom Fork Test
+        uses: EthereumRemix/ts-sol-test@v1.4.0
         with:
-          test-path: 'test/Voting_test.sol'
-          compiler-version: '0.8.20'
+          test-path: 'test/Voting.test.js'
+          contract-path: 'contracts/Voting.sol'
+          compiler-version: '0.8.17'
+          hard-fork: 'merge'
+          node-url: 'https://rpc.archivenode.io/e50zmkroshle2e2e50zm0044i7ao04ym'
+
