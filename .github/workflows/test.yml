@@ -11,9 +11,9 @@ jobs:
       - name: Environment Setup
         uses: actions/setup-node@v3
         with:
-          node-version: 14.15.1
+          node-version: 20.12.2
       - name: Run SUT action with default provider
         uses: EthereumRemix/sol-test@v1
         with:
           test-path: 'test/Voting_test.sol'
-          compiler-version: '0.8.15'
+          compiler-version: '0.8.20'
